@@ -1,0 +1,10 @@
+
+npm audit fix
+npm install -g nsp
+nsp check
+
+# run script by node.jsn
+node .\buildScripts\srcServer.js
+npm install -g localtunnel
+
+# tunnel server offline: unable to get local issuer certificate, retry 1s - Open DNS issue
