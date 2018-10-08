@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "babel-node .\\buildScripts\\startMessage.js",
     "open:src": "babel-node .\\buildScripts\\srcServer.js",
-    "start": "npm-run-all --parallel security-check open:src",
+    "start": "npm-run-all --parallel security-check open:src test:watch start-mockapi",
     "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
     "postStart": "node .\\buildScripts\\startPostMessage.js",
@@ -14,7 +14,10 @@
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all --parallel open:src localtunnel",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "generate-mock-data": "babel-node .\\buildScripts\\generateMockData",
+    "prestart-mockapi": "npm run generate-mock-data",
+    "start-mockapi": "json-server --watch src\\api\\db.json --port 3001"
   },
   "author": "Cory House",
   "license": "MIT",
@@ -42,7 +45,7 @@
     "extract-text-webpack-plugin": "1.0.1",
     "html-webpack-plugin": "2.22.0",
     "jsdom": "9.8.0",
-    "json-schema-faker": "^0.4.7",
+    "json-schema-faker": "^0.5.0-rc16",
     "json-server": "^0.14.0",
     "localtunnel": "^1.9.1",
     "mocha": "3.1.2",
