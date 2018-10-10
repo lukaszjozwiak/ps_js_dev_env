@@ -64,3 +64,5 @@ typings/
 
 api/db.json
 .vscode
+
+dist/
