@@ -1,5 +1,8 @@
 export default function getBaseUrl() {
-  return getParameterByName('useMockApi') ? 'http://localhost:3001/' : '/';
+  // https://github.com/coryhouse/js-dev-env-demo-api - heroku server api source
+  // http://drab-note.surge.sh/ - frontend deploy
+  // https://www.javascriptstuff.com/react-starter-projects/ - starter projects
+  return getParameterByName('useMockApi') ? 'http://localhost:3001/' : 'https://mysterious-crag-56986.herokuapp.com/';
 }
 
 function getParameterByName(name, url) {
